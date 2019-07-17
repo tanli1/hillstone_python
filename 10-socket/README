@@ -1,0 +1,15 @@
+练习目的
+socket建立tcp连接，并发送应用层数据
+
+
+练习内容
+通过socket建立tcp连接
+scapy读取http报文的request和response的raw.load
+将request和response分别从client和server端send，完成http连接
+
+
+scapy引用方式和pcap读取和重写方式参考：
+
+from scapy.all import *
+pcap = rdpcap(‘test.pcap’)
+wrpcap(pcap_name, pcap_content)

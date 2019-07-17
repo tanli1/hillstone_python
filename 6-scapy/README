@@ -1,0 +1,15 @@
+练习内容
+请提取出test.pcap中的HTTP请求报文中的请求行，请求头，请求体。并打印请求行中的请求方法、URI、HTTP协议版本，打印每一个请求头及其取值，打印请求体的内容
+请提取出test.pcap中的HTTP响应报文中的响应行，响应头，响应体。并打印响应行中的状态码(200 OK)、HTTP协议版本，打印每一个响应头及其取值，打印响应体的内容
+
+_注：
+scapy引用方式和pcap读取方式参考：
+
+from scapy.all import *
+pcap = rdpcap(‘test.pcap’)  
+
+
+练习要求
+步骤1和步骤2中不能hardcode指定第4个或者第5个packet为HTTP请求或者响应报文，需要通过for循环等处理找到需要处理的报文
+test.pcap需要通过脚本外部传入参数，不要在脚本中hardcode，请增加一个-f参数，比如用法为：
+python p6.py -f tmp/test.pcap

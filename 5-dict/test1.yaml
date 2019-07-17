@@ -1,0 +1,16 @@
+# policy function test 1
+
+---
+- config:
+    - testset: "Function testcase to test rest"
+
+- test:
+    - name: "Edit av"
+    - url: "/rest/doc/av"
+    - method: PUT
+    - body: '[{"name": "test","file_type": [{"value": 9}, {"value": 33}, {"value": 5}, {"value": 35}, {"value": 6}], "protocol": [{"type": 10,"action": "1"}, {"type": 6,"action": "0"}, {"type": 11,"action": "0"}, {"type": 17, "action": "0"}, {"type": 70, "action": "1"}], "malicioussite": {"enable": 1,"action": "2"},"lable_mail": {"enable": 1}}]'
+    - headers:
+        template: {Cookie: $stone_cookie, token: $stone_token}
+    - validators:
+        - compare: {jsonpath_mini: 'success', expected: True}
+        - stoneos_config: {'av-profile "test"': ['file-type html','file-type pe','file-type mail','file-type elf','file-type gzip','protocol-type FTP action reset-conn','label-mail','anti-malicious-sites']}

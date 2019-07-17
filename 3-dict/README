@@ -1,0 +1,47 @@
+练习目的
+熟悉python的字典的相关操作，包括插入，删除，更新，排序等
+
+练习内容
+1. 创建2个字典： dict1 = {'a':'97','b':'98','c':'99','d':'100',...,'v':'118'}----22个键值对 dict2 = {'a':'222','d':'111','z':'122'}
+2. dict1中插入两个元素，x=120 ， y=121
+3. 更新dict1元素b=99
+4. 删除dict1元素c
+5. 使用dict2更新dict1：dict1.update(dict2)
+6. 判断dict1如果含有元素w，然后判断w的值，如果没有此元素就添加w元素，值为234，然后判断如果元素值为234，就删除w元素
+7. 在步骤6的基础上，将字典的元素按value排序
+8. 在步骤6的基础上，将字典的元素按key排序
+
+注：
+键必须是唯一的，但值不必。
+字典本身是无序存放的，只有打印的时候才可以按照一定顺序打印，但字典内部存放结构不变_。
+
+相关知识点
+方法 用途
+dict.has_key(key) 如果key在字典中则返回true，否则返回false
+dict.keys() 以列表返回一个字典所有的键
+dict.values() 以列表返回一个字典所有的值
+dict.pop(key) 删除字典给定key所对应的值
+dict.clear() 清空字典
+dict.update(dict2) 把dict2的键/值更新到dict里
+dict.items() 以列表返回字典的所有元素
+
+关于字典排序打印
+字典通常会有按键排序和按值排序打印两种，其中，按键排序比较容易理解
+
+按键排序
+按键排序，实际上只需要对key进行排序即可用于打印，代码示例
+keys = dict1.keys()
+keys.sort()
+for i in keys:
+    print "%s: %s" %(i, dict1[i])
+
+按值排序
+按值排序用到的是内置函数sorted()，但同时会引入匿名函数lambda，使得理解困难。在当前情况下，不需要理解lambda，只需要能够根据示例使用即可。代码示例
+for i in sorted(dict1.items(), key=lambda x:x[1]):
+    print i
+
+
+拓展阅读
+https://mp.weixin.qq.com/s/CI68sHGYu2ltTP1WEQ_s_Q
+https://mp.weixin.qq.com/s/GMA0KK-UFWxzvLIsELMlVA
+https://mp.weixin.qq.com/s/GYDtCG3BFtBAqQ0N715pPg

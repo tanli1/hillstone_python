@@ -1,0 +1,26 @@
+练习目的
+结合restful api 脚本的部分内容，学习复杂字典的处理
+
+练习内容
+
+1. 创建2个list，其中:
+list1是从1到200，一共200个元素的list;
+示例list1 = [1,2,...,199,200]
+list2是从string.ascii_letters+string.digits中随机取值，组成一共200个元素的list。要求：元素为1个字符的元素共20个，元素为2个字符的元素共20个，...，元素为10个字符的元素共20个，一共200个元素。
+示例list2 = ['a','c','1','0D','Ss','ac','dFgT0','dfgHtY6570',...]
+
+
+2. 读取test1.yaml文件的内容，并将所有内容赋值给一个字典dict1，并打印字典dict1
+
+
+3. 将dict1中的key:body的value部分转换成一个字典dict2，并打印字典dict2
+body部分如下：
+body: '[{"name": "test","file_type": [{"value": 9}, {"value": 33}, {"value": 5}, {"value": 35}, {"value": 6}], "protocol": [{"type": 10,"action": "1"}, {"type": 6,"action": "0"}, {"type": 11,"action": "0"}, {"type": 17, "action": "0"}, {"type": 70, "action": "1"}], "malicioussite": {"enable": 1,"action": "2"},"lable_mail": {"enable": 1}}]'
+示例dict2 = {"name": "test","file_type": [{"value": 9}, {"value": 33}, {"value": 5}, {"value": 35}, {"value": 6}], "protocol": [{"type": 10,"action": "1"}, {"type": 6,"action": "0"}, {"type": 11,"action": "0"}, {"type": 17, "action": "0"}, {"type": 70, "action": "1"}], "malicioussite": {"enable": 1,"action": "2"},"lable_mail": {"enable": 1}}
+
+
+4. 对dict2进行处理,得到新字典dict3，并打印字典dict3。处理如下：
+遍历dict2中的所有的键值对，判断：
+如果键值对中value的类型为int，保持key不变，从list1中随机取值并赋值给该value
+如果键值对中value的类型为str，保持key不变，从list2中随机取值并赋值给该value
+示例dict3 = {"name": "ad0fad1sf","file_type": [{"value": 115}, {"value": 53}, {"value": 5}, {"value": 135}, {"value": 189}], "protocol": [{"type": 110,"action": "ad55sfdasf"}, {"type": 6,"action": "ad"}, {"type": 191,"action": "a"}, {"type": 117, "action": "bb8c"}, {"type": 170, "action": "ac7dadf0"}], "malicioussite": {"enable": 10,"action": "etg"},"lable_mail": {"enable": 111}}

@@ -1,0 +1,39 @@
+练习目的
+结合restful api 脚本的部分内容，学习复杂字典的处理
+
+练习内容
+1. 读取yaml文件的内容，将test部分生成一个字典dict1，并打印该字典
+
+2. 将url query的取值部分转换成一个字典dict2，并打印该字典
+   示例dict2 = {"conditions":[{"field":"name","operator":0,"value":"test"}],"start":0,"limit":20,"page":1}
+
+3. 对dict2进行处理：所有键值对中，值为str类型的key的值都设置成‘test’，值为int类型的key的值都设置成100。得到新字典dict3，并打印处理后的新字典dict3。
+ 示例dict3 = {"conditions":[{"field":"test","operator":100,"value":"test"}],"start":100,"limit":100,"page":100}
+
+
+关于yaml文件读取，如下信息供参考：
+def read_yamlfile(yamlfile):
+    """read yaml file"""
+    import yaml
+
+    f = open(yamlfile)
+    cfg = f.read()
+    f.close()
+    testcase = yaml.load(cfg)
+    return testcase
+
+step3的一点提示：
+for key, value in dict1.getitems():
+    if isinstance(dict1[key], str):
+    ....
+    elif isinstance(dict1[key], int):
+    ...
+    elif isinstance(dict1[key], list):
+    ...
+    elif isinstance(dict1[key], dict):
+
+
+练习要求
+字典打印无排序要求，打印后的字典可以是无序的
+step2中禁止直接对dict2进行如下赋值操作。
+dict2 = {"conditions":[{"field":"name","operator":0,"value":"test"}],"start":0,"limit":20,"page":1}

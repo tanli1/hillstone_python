@@ -1,0 +1,14 @@
+# policy function test 1
+
+---
+- config:
+    - testset: "Function testcase to test rest"
+- test:
+    - name: "Get av"
+    - url: '/rest/doc/av?query={"conditions":[{"field":"name","operator":0,"value":"test"}],"start":0,"limit":20,"page":1}'
+    - headers:
+        template: {Cookie: $stone_cookie, token: $stone_token}
+    - validators:
+        - compare: {jsonpath_mini: 'success', expected: True}
+        - compare: {jmespath: "result[?name == 'test'].lable_mail.enable", comparator: "contains", expected: '1'}
+        - stoneos_config: {'av-profile "test"':'label-mail'}

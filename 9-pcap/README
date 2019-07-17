@@ -1,0 +1,29 @@
+练习目的
+scapy模块基础模块处理或者与其余模块结合处理pcap报文
+
+
+练习内容
+
+附件pcap中包含3条tcp stream。最终需要生成3个新的pcap，每条tcp stream生成1个新的pcap。要求HTTP报文内容(包括头和body)维持跟原rewrite.pcap中的内容一致，tcp连接中的信息（比如src_mac/ip/port、dst_mac/ip/port）可随意
+附件pcap中包含3条tcp stream。请将其中的http请求逐个发送出去，对端可以根据http请求报文发送相应的响应报文。要求报文的body维持跟原rewrite3.pcap中的内容一致，tcp连接中的信息以及http头部信息可随意
+如上2个step，请至少完成其中1个。
+
+_注：
+scapy引用方式和pcap读取和重写方式参考：
+
+from scapy.all import *
+pcap = rdpcap(‘test.pcap’)
+wrpcap(pcap_name, pcap_content)
+ 
+
+tcpreplay、tcpprep、tcprewrite可以实现改包和回放报文
+
+https://blog.csdn.net/windone0109/article/details/8771404
+
+python urllib、requests、BaseHTTPServer等库也可以实现报文发送
+
+https://mp.weixin.qq.com/s/-2x3ZpM-Xk-vicjqR35ZUg
+
+tshark可以根据stream分流
+
+nc和socket可以实现连接建立
