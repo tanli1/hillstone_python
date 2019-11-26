@@ -1,0 +1,38 @@
+练习题
+读取excel表格中的数据，将其保存在一个字典中，表格数据类似：
+x       1    2
+元素1   1    2
+元素2   3    4
+元素3   5    6
+
+1. 从excel文件中读取内容，对内容进行提取
+2. 计算每行元素的和
+3. 遇到空，则以0处理
+
+
+要求
+
+可直接使用现有库
+可读取文件后进行分析
+
+1. xmls文件，可以使用解压缩工具解压，然后会得到相关文件，目录结构树类似于
+/
+ `- _rels
+  - docProps
+    `- app
+     - core
+  - xl
+    `- _rels
+     - printerSettings
+     - theme
+     - worksheets
+       `- _rels
+        - sheet1
+     - sharedStrings
+     - styles
+     - workbook
+  - [Content_types]
+
+其中，sheet1中存放的是最终的数据，数据格式类似于......
+
+2. 另一种方法，可以使用xlwt库来完成，或者xlrd，总之库很多，选其一而用之

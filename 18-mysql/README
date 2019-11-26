@@ -1,0 +1,25 @@
+练习内容
+
+创建数据库并创建测试表
+获取数据库条目内容
+向数据库中插入一条内容
+删除一条数据
+支持命令行方式
+必要的错误处理
+
+$ python database.py get
++----+------+----------------------+----------+
+| id | name | email                | password |
++----+------+----------------------+----------+
+| 1  | bqi  | bqi@hillstonenet.com | abcd1234 |
++----+------+----------------------+----------+
+$ python database.py insert
+name: hillstone
+email: hillstone@hillstonenet.com
+password: hillstone
+
+Insert successfully.
+$ python database.py delete
+Please input the id: 1
+
+Success to delete the item: id=1
