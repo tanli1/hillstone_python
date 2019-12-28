@@ -1,0 +1,13 @@
+Expect是一个实现自动交互功能的软件套件（a software suite for automating interactive tools）
+
+很多编程语言都有expect的实现，如shell、Perl、Ruby、Tcl等
+而Pexpect是Expect的python实现。
+
+练习内容
+
+使用python连接一个ftp服务器
+输入用户名密码后查看是否有test.txt文件
+如果有，则下载该文件到本地
+如果没有，则退出
+记录交互日志到文件中，如ftpConn.exp
+
